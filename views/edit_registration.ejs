@@ -1,0 +1,41 @@
+<%- include layouts/header.ejs %>
+
+        <div class="page-data">
+            
+            <form method="post" action="/registrations/edit/<%=data[0].id%>">
+                <table cellpadding="11">
+                <tr>
+                    <td class="label">Fname</td><td>: <input type="text" name="fname" value="<%=data[0].fname%>" required></td>
+                 </tr>
+                  <tr>
+                    <td class="label">Lname</td><td>: <input type="text" name="lname"  value="<%=data[0].lname%>"required></td>
+                 </tr>
+                 <tr>
+                    <td class="label">Dob</td><td>: <input type="date" name="dob"  value="<%=userdob%>"required></td>
+                 </tr>
+                 <td class="label" >Gender</td>
+                <td>
+                    <input type="radio" name="gender" value="male" required <% if (data[0].gender == 'male') { %> checked=true <% } %>  > Male
+                    <input type="radio" name="gender" value="female"  required <% if (data[0].gender == 'female') { %> checked=true <% } %> > Female
+                    <input type="radio" name="gender" value="other" required <% if (data[0].gender == 'other') { %> checked=true <% } %> > Other
+                </td>
+                 <tr>
+                    <td class="label" valign="top">Address</td>
+                    <td valign="top">: 
+                        <textarea name="address" required cols="30" rows="5"><%=data[0].address%></textarea>
+                    </td>
+                </tr>
+               
+                 <tr>
+                    <td class="label"></td>
+                    <td>
+                        &nbsp; <input type="submit" name="submit" value="Save">
+                       <input type="button" name="cancel" value="Cancel" class="cancel" onClick="cancelAdd()">
+                    </td>
+                 </tr>
+                </table>
+            </form>
+            
+        </div>
+        
+<%- include layouts/footer.ejs %>
